@@ -1,13 +1,12 @@
 :root {
-  --color-crema: #f3e9d8;
-  --color-crema-suave: #ece0cb;
-  --color-marron-oscuro: #3a271b;
-  --color-marron-medio: #6b4326;
-  --color-teja: #b5502e;
-  --color-teja-suave: #c96a45;
-  --color-oliva: #4a4a2e;
-  --color-texto: #3a271b;
-  --color-borde: rgba(58, 39, 27, 0.18);
+  --color-crema: #f5f0e3;
+  --color-crema-suave: #e9e0c9;
+  --color-azul-oscuro: #1c3350;
+  --color-azul-medio: #3d5878;
+  --color-dorado: #b6902e;
+  --color-dorado-suave: #cca948;
+  --color-texto: #1c3350;
+  --color-borde: rgba(28, 51, 80, 0.18);
 
   --font-titulo: 'Fraunces', serif;
   --font-texto: 'Nunito Sans', sans-serif;
@@ -65,14 +64,14 @@ a {
 }
 
 .boton--primario {
-  background-color: var(--color-teja);
+  background-color: var(--color-dorado);
   color: var(--color-crema);
-  box-shadow: 0 6px 16px rgba(181, 80, 46, 0.35);
+  box-shadow: 0 6px 16px rgba(182, 144, 46, 0.35);
 }
 
 .boton--primario:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 22px rgba(181, 80, 46, 0.45);
+  box-shadow: 0 10px 22px rgba(182, 144, 46, 0.45);
 }
 
 .cabecera {
@@ -99,7 +98,7 @@ a {
   font-family: var(--font-titulo);
   font-weight: 700;
   font-size: 1.4rem;
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
   letter-spacing: 0.04em;
 }
 
@@ -112,7 +111,7 @@ a {
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
   position: relative;
   padding-bottom: 4px;
   transition: color 0.3s ease;
@@ -125,12 +124,12 @@ a {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-teja);
+  background-color: var(--color-dorado);
   transition: width 0.3s ease-out;
 }
 
 .cabecera__nav a:hover {
-  color: var(--color-teja);
+  color: var(--color-dorado);
 }
 
 .cabecera__nav a:hover::after {
@@ -153,7 +152,7 @@ a {
 .cabecera__toggle span {
   display: block;
   height: 2px;
-  background-color: var(--color-marron-oscuro);
+  background-color: var(--color-azul-oscuro);
   border-radius: 2px;
   transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
@@ -276,15 +275,15 @@ a {
   font-family: var(--font-titulo);
   font-weight: 600;
   font-size: 1.2rem;
-  color: var(--color-marron-oscuro);
-  box-shadow: 0 6px 18px rgba(58, 39, 27, 0.08);
+  color: var(--color-azul-oscuro);
+  box-shadow: 0 6px 18px rgba(28, 51, 80, 0.08);
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .tarjeta-seccion:hover,
 .tarjeta-seccion:focus-visible {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(58, 39, 27, 0.16);
+  box-shadow: 0 14px 28px rgba(28, 51, 80, 0.16);
 }
 
 body.seccion-abierta {
@@ -324,21 +323,21 @@ body.seccion-abierta {
   font-family: var(--font-texto);
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
   cursor: pointer;
   transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
 }
 
 .seccion-completa__cerrar:hover {
-  background-color: var(--color-teja);
+  background-color: var(--color-dorado);
   color: var(--color-crema);
-  border-color: var(--color-teja);
+  border-color: var(--color-dorado);
 }
 
 .seccion--textura-piedra {
   background-color: var(--color-crema);
   background-image:
-    radial-gradient(rgba(58, 39, 27, 0.04) 1px, transparent 1px);
+    radial-gradient(rgba(28, 51, 80, 0.04) 1px, transparent 1px);
   background-size: 14px 14px;
 }
 
@@ -352,7 +351,7 @@ body.seccion-abierta {
   font-family: var(--font-titulo);
   font-weight: 600;
   font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
@@ -363,7 +362,7 @@ body.seccion-abierta {
   display: block;
   width: 56px;
   height: 3px;
-  background-color: var(--color-teja);
+  background-color: var(--color-dorado);
   margin: 0.9rem auto 0;
   border-radius: 2px;
 }
@@ -382,13 +381,13 @@ body.seccion-abierta {
 .sobre__texto {
   font-size: 1.05rem;
   text-align: center;
-  color: var(--color-marron-medio);
+  color: var(--color-azul-medio);
 }
 
 .menu__nota {
   text-align: center;
   font-weight: 700;
-  color: var(--color-teja);
+  color: var(--color-dorado);
   margin-bottom: 2.5rem;
 }
 
@@ -403,7 +402,7 @@ body.seccion-abierta {
   border: 1px solid var(--color-borde);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(58, 39, 27, 0.08);
+  box-shadow: 0 6px 18px rgba(28, 51, 80, 0.08);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-out;
@@ -415,7 +414,7 @@ body.seccion-abierta {
 }
 
 .plato-card:hover {
-  box-shadow: 0 14px 28px rgba(58, 39, 27, 0.16);
+  box-shadow: 0 14px 28px rgba(28, 51, 80, 0.16);
   transform: translateY(-4px);
 }
 
@@ -439,21 +438,21 @@ body.seccion-abierta {
   font-family: var(--font-titulo);
   font-weight: 600;
   font-size: 1.2rem;
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
   padding: 1.1rem 1.1rem 0.4rem;
 }
 
 .plato-card__precio {
   display: block;
   font-weight: 700;
-  color: var(--color-teja);
+  color: var(--color-dorado);
   padding: 0 1.1rem 1.1rem;
 }
 
 .reservas__nota {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--color-marron-medio);
+  color: var(--color-azul-medio);
 }
 
 .reservas__form {
@@ -477,7 +476,7 @@ body.seccion-abierta {
 .reservas__campo label {
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-marron-oscuro);
+  color: var(--color-azul-oscuro);
 }
 
 .reservas__campo input,
@@ -495,8 +494,8 @@ body.seccion-abierta {
 .reservas__campo input:focus,
 .reservas__campo textarea:focus {
   outline: none;
-  border-color: var(--color-teja);
-  box-shadow: 0 0 0 3px rgba(181, 80, 46, 0.15);
+  border-color: var(--color-dorado);
+  box-shadow: 0 0 0 3px rgba(182, 144, 46, 0.15);
 }
 
 .reservas__form .boton {
@@ -515,7 +514,7 @@ body.seccion-abierta {
 
 .contacto__lista a {
   text-decoration: none;
-  color: var(--color-teja);
+  color: var(--color-dorado);
   font-weight: 700;
 }
 
@@ -534,7 +533,7 @@ body.seccion-abierta {
 }
 
 .footer {
-  background-color: var(--color-marron-oscuro);
+  background-color: var(--color-azul-oscuro);
   color: var(--color-crema-suave);
   padding: 3rem 0;
 }
@@ -562,7 +561,7 @@ body.seccion-abierta {
 }
 
 .footer__inner a:hover {
-  color: var(--color-teja-suave);
+  color: var(--color-dorado-suave);
 }
 
 .footer__copy {
