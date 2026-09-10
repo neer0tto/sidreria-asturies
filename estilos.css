@@ -1,12 +1,12 @@
 :root {
-  --color-crema: #f5f0e6;
-  --color-crema-suave: #e9e0cc;
-  --color-verde-bosque: #2d4a3a;
-  --color-azul-cantabrico: #1f4959;
-  --color-dorado: #c9a24b;
-  --color-dorado-suave: #d9be81;
-  --color-texto: #1a1a1a;
-  --color-borde: rgba(45, 74, 58, 0.18);
+  --color-crema: #ede6d6;
+  --color-crema-suave: #e0d7c0;
+  --color-verde-bosque: #1a2e22;
+  --color-azul-cantabrico: #0d2b36;
+  --color-dorado: #a8842f;
+  --color-dorado-suave: #c9a24b;
+  --color-texto: #f5f0e6;
+  --color-borde: rgba(168, 132, 47, 0.25);
 
   --font-titulo: 'Fraunces', serif;
   --font-texto: 'Nunito Sans', sans-serif;
@@ -60,18 +60,19 @@ a {
   border-radius: 6px;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background-color 0.25s ease-out;
 }
 
 .boton--primario {
   background-color: var(--color-dorado);
-  color: var(--color-texto);
-  box-shadow: 0 6px 16px rgba(201, 162, 75, 0.35);
+  color: #1a1a1a;
+  box-shadow: 0 6px 16px rgba(168, 132, 47, 0.35);
 }
 
 .boton--primario:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 22px rgba(201, 162, 75, 0.45);
+  background-color: var(--color-dorado-suave);
+  box-shadow: 0 10px 22px rgba(168, 132, 47, 0.45);
 }
 
 .cabecera {
@@ -267,7 +268,7 @@ a {
   display: block;
   width: 100%;
   background-color: var(--color-crema-suave);
-  border: 1px solid rgba(31, 73, 89, 0.35);
+  border: 1px solid rgba(13, 43, 54, 0.35);
   border-radius: 10px;
   padding: 1.75rem 1.5rem;
   text-align: center;
@@ -276,15 +277,22 @@ a {
   font-weight: 600;
   font-size: 1.2rem;
   color: var(--color-verde-bosque);
-  box-shadow: 0 6px 18px rgba(45, 74, 58, 0.08);
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  box-shadow: 0 6px 18px rgba(26, 46, 34, 0.08);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out, opacity 0.4s ease-out;
+}
+
+.tarjeta-seccion.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .tarjeta-seccion:hover,
 .tarjeta-seccion:focus-visible {
   transform: translateY(-4px);
   border-color: var(--color-dorado);
-  box-shadow: 0 14px 28px rgba(45, 74, 58, 0.16);
+  box-shadow: 0 14px 28px rgba(26, 46, 34, 0.16);
 }
 
 body.seccion-abierta {
@@ -324,35 +332,37 @@ body.seccion-abierta {
   font-family: var(--font-texto);
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-verde-bosque);
+  color: var(--color-texto);
   cursor: pointer;
   transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
 }
 
 .seccion-completa__cerrar:hover {
   background-color: var(--color-dorado);
-  color: var(--color-texto);
+  color: #1a1a1a;
   border-color: var(--color-dorado);
 }
 
 .seccion--textura-piedra {
-  background-color: var(--color-crema);
+  background-color: var(--color-verde-bosque);
   background-image:
-    radial-gradient(rgba(31, 73, 89, 0.06) 1px, transparent 1px);
+    radial-gradient(rgba(168, 132, 47, 0.05) 1px, transparent 1px);
   background-size: 14px 14px;
+  background-position: 0 0;
 }
 
 .seccion--textura-madera {
-  background-color: var(--color-crema-suave);
+  background-color: var(--color-azul-cantabrico);
   background-image:
-    repeating-linear-gradient(90deg, rgba(107, 67, 38, 0.05) 0px, rgba(107, 67, 38, 0.05) 2px, transparent 2px, transparent 26px);
+    repeating-linear-gradient(90deg, rgba(168, 132, 47, 0.05) 0px, rgba(168, 132, 47, 0.05) 2px, transparent 2px, transparent 26px);
+  background-position: 0 0;
 }
 
 .seccion__titulo {
   font-family: var(--font-titulo);
   font-weight: 600;
   font-size: clamp(1.8rem, 4vw, 2.4rem);
-  color: var(--color-verde-bosque);
+  color: var(--color-texto);
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
@@ -361,11 +371,16 @@ body.seccion-abierta {
 .seccion__titulo::after {
   content: '';
   display: block;
-  width: 56px;
+  width: 0;
   height: 3px;
   background-color: var(--color-dorado);
   margin: 0.9rem auto 0;
   border-radius: 2px;
+  transition: width 0.4s ease-out 0.15s;
+}
+
+.seccion-completa.activa .seccion__titulo::after {
+  width: 56px;
 }
 
 .reveal {
@@ -382,13 +397,13 @@ body.seccion-abierta {
 .sobre__texto {
   font-size: 1.05rem;
   text-align: center;
-  color: var(--color-azul-cantabrico);
+  color: var(--color-texto);
 }
 
 .menu__nota {
   text-align: center;
   font-weight: 700;
-  color: var(--color-azul-cantabrico);
+  color: var(--color-texto);
   margin-bottom: 2.5rem;
 }
 
@@ -403,7 +418,7 @@ body.seccion-abierta {
   border: 1px solid var(--color-borde);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(45, 74, 58, 0.08);
+  box-shadow: 0 6px 18px rgba(26, 46, 34, 0.08);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease-out;
@@ -415,7 +430,7 @@ body.seccion-abierta {
 }
 
 .plato-card:hover {
-  box-shadow: 0 14px 28px rgba(45, 74, 58, 0.16);
+  box-shadow: 0 14px 28px rgba(26, 46, 34, 0.16);
   transform: translateY(-4px);
 }
 
@@ -427,6 +442,11 @@ body.seccion-abierta {
   justify-content: center;
   text-align: center;
   padding: 1rem;
+  transition: transform 0.3s ease-out;
+}
+
+.plato-card:hover .plato-card__foto-placeholder {
+  transform: scale(1.05);
 }
 
 .plato-card__foto-placeholder span {
@@ -453,7 +473,7 @@ body.seccion-abierta {
 .reservas__nota {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--color-azul-cantabrico);
+  color: var(--color-texto);
 }
 
 .reservas__form {
@@ -477,7 +497,7 @@ body.seccion-abierta {
 .reservas__campo label {
   font-weight: 700;
   font-size: 0.9rem;
-  color: var(--color-verde-bosque);
+  color: var(--color-texto);
 }
 
 .reservas__campo input,
@@ -488,7 +508,7 @@ body.seccion-abierta {
   border: 1px solid var(--color-borde);
   border-radius: 6px;
   background-color: #fffdf9;
-  color: var(--color-texto);
+  color: var(--color-verde-bosque);
   transition: border-color 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
@@ -496,7 +516,7 @@ body.seccion-abierta {
 .reservas__campo textarea:focus {
   outline: none;
   border-color: var(--color-dorado);
-  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.15);
+  box-shadow: 0 0 0 3px rgba(168, 132, 47, 0.15);
 }
 
 .reservas__form .boton {
@@ -515,7 +535,7 @@ body.seccion-abierta {
 
 .contacto__lista a {
   text-decoration: none;
-  color: var(--color-azul-cantabrico);
+  color: var(--color-texto);
   font-weight: 700;
 }
 
@@ -622,7 +642,8 @@ body.seccion-abierta {
 
   .reveal,
   .plato-card,
-  .hero__contenido {
+  .hero__contenido,
+  .tarjeta-seccion {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
@@ -630,7 +651,13 @@ body.seccion-abierta {
   }
 
   .seccion-completa,
-  .menu-secciones__grid {
+  .menu-secciones__grid,
+  .plato-card__foto-placeholder {
     transition: none !important;
+  }
+
+  .seccion__titulo::after {
+    transition: none !important;
+    width: 56px !important;
   }
 }

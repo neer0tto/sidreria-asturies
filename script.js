@@ -89,6 +89,38 @@ const observadorPlatos = new IntersectionObserver((entradas) => {
 
 tarjetasPlatos.forEach((tarjeta) => observadorPlatos.observe(tarjeta));
 
+// Tarjetas del menú de secciones: aparecen con fundido + escala leve, en cascada
+const observadorTarjetasSeccion = new IntersectionObserver((entradas) => {
+  entradas.forEach((entrada) => {
+    if (entrada.isIntersecting) {
+      const indice = Array.from(tarjetasSeccion).indexOf(entrada.target);
+      entrada.target.style.transitionDelay = `${indice * 0.12}s`;
+      entrada.target.classList.add('visible');
+      observadorTarjetasSeccion.unobserve(entrada.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+tarjetasSeccion.forEach((tarjeta) => observadorTarjetasSeccion.observe(tarjeta));
+
+// Parallax sutil: la textura de fondo de cada sección se desplaza más lento que el contenido
+const prefiereMovimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefiereMovimientoReducido) {
+  seccionesCompletas.forEach((seccion) => {
+    let ticking = false;
+    seccion.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const desplazamiento = Math.max(-18, Math.min(18, seccion.scrollTop * 0.15));
+        seccion.style.backgroundPositionY = `${desplazamiento}px`;
+        ticking = false;
+      });
+    });
+  });
+}
+
 // Formulario de reservas: arma el mensaje y abre WhatsApp con los datos ya escritos
 const formularioReservas = document.getElementById('formularioReservas');
 const NUMERO_WHATSAPP = '34918411365'; // PLACEHOLDER: confirmar que este número tenga WhatsApp Business activo
