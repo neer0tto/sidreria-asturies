@@ -247,9 +247,92 @@ a {
   margin-bottom: 2rem;
 }
 
+.menu-secciones {
+  padding: 4rem 0 5rem;
+}
+
+.menu-secciones__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.menu-secciones__grid.oculta {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tarjeta-seccion {
+  display: block;
+  width: 100%;
+  background-color: var(--color-crema-suave);
+  border: 1px solid var(--color-borde);
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--color-marron-oscuro);
+  box-shadow: 0 6px 18px rgba(58, 39, 27, 0.08);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.tarjeta-seccion:hover,
+.tarjeta-seccion:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(58, 39, 27, 0.16);
+}
+
+body.seccion-abierta {
+  overflow: hidden;
+}
+
 .seccion {
   padding: 5rem 0;
   position: relative;
+}
+
+.seccion-completa {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.seccion-completa.activa {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.seccion-completa__cerrar {
+  display: block;
+  margin: 0 auto 2rem;
+  width: fit-content;
+  background: none;
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  padding: 0.55rem 1.25rem;
+  font-family: var(--font-texto);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--color-marron-oscuro);
+  cursor: pointer;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+.seccion-completa__cerrar:hover {
+  background-color: var(--color-teja);
+  color: var(--color-crema);
+  border-color: var(--color-teja);
 }
 
 .seccion--textura-piedra {
@@ -506,6 +589,10 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .menu-secciones__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .reservas__form {
     max-width: 480px;
     margin: 0 auto;
@@ -515,6 +602,10 @@ a {
 @media (min-width: 1024px) {
   .menu__grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menu-secciones__grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -536,5 +627,10 @@ a {
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .seccion-completa,
+  .menu-secciones__grid {
+    transition: none !important;
   }
 }

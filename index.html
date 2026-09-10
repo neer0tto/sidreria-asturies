@@ -42,9 +42,22 @@
     </div>
   </section>
 
+  <!-- MENÚ DE SECCIONES -->
+  <section id="menuSecciones" class="menu-secciones">
+    <div class="contenedor">
+      <div class="menu-secciones__grid" id="gridSecciones">
+        <button type="button" class="tarjeta-seccion" data-seccion="sobre-nosotros">Sobre nosotros</button>
+        <button type="button" class="tarjeta-seccion" data-seccion="menu">Menú</button>
+        <button type="button" class="tarjeta-seccion" data-seccion="reservas">Reservas</button>
+        <button type="button" class="tarjeta-seccion" data-seccion="contacto">Contacto</button>
+      </div>
+    </div>
+  </section>
+
   <!-- SOBRE NOSOTROS -->
-  <section id="sobre-nosotros" class="seccion seccion--textura-piedra reveal">
+  <section id="sobre-nosotros" class="seccion seccion--textura-piedra seccion-completa">
     <div class="contenedor contenedor--estrecho">
+      <button type="button" class="seccion-completa__cerrar" data-cerrar>← Volver</button>
       <h2 class="seccion__titulo">Sobre nosotros</h2>
       <p class="sobre__texto">
         Somos un sitio familiar en El Molar donde la cocina asturiana se hace como siempre se ha hecho: con calma,
@@ -55,8 +68,9 @@
   </section>
 
   <!-- MENÚ -->
-  <section id="menu" class="seccion seccion--textura-madera reveal">
+  <section id="menu" class="seccion seccion--textura-madera seccion-completa">
     <div class="contenedor">
+      <button type="button" class="seccion-completa__cerrar" data-cerrar>← Volver</button>
       <h2 class="seccion__titulo">Menú</h2>
       <p class="menu__nota">Menú del día: 10–15€ aprox. · Carta: 23–45€ aprox.</p>
 
@@ -113,8 +127,9 @@
   </section>
 
   <!-- RESERVAS -->
-  <section id="reservas" class="seccion seccion--textura-piedra reveal">
+  <section id="reservas" class="seccion seccion--textura-piedra seccion-completa">
     <div class="contenedor contenedor--estrecho">
+      <button type="button" class="seccion-completa__cerrar" data-cerrar>← Volver</button>
       <h2 class="seccion__titulo">Reservas</h2>
       <p class="reservas__nota">Completa el formulario y te llevará directo a WhatsApp con los datos ya escritos.</p>
 
@@ -151,8 +166,9 @@
   </section>
 
   <!-- CONTACTO Y UBICACIÓN -->
-  <section id="contacto" class="seccion seccion--textura-madera reveal">
+  <section id="contacto" class="seccion seccion--textura-madera seccion-completa">
     <div class="contenedor contenedor--estrecho">
+      <button type="button" class="seccion-completa__cerrar" data-cerrar>← Volver</button>
       <h2 class="seccion__titulo">Contacto y ubicación</h2>
       <ul class="contacto__lista">
         <li>📍 Plaza del Paraíso, 10, 28710 El Molar, Madrid</li>

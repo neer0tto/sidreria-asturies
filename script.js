@@ -16,6 +16,51 @@ navPrincipal.querySelectorAll('a').forEach((enlace) => {
   });
 });
 
+// Menú de secciones: tarjetas que abren cada sección a pantalla completa con fundido suave
+const gridSecciones = document.getElementById('gridSecciones');
+const tarjetasSeccion = document.querySelectorAll('.tarjeta-seccion');
+const seccionesCompletas = document.querySelectorAll('.seccion-completa');
+
+function abrirSeccion(id) {
+  const seccion = document.getElementById(id);
+  if (!seccion || !seccion.classList.contains('seccion-completa')) return;
+  gridSecciones.classList.add('oculta');
+  seccion.classList.add('activa');
+  seccion.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('seccion-abierta');
+}
+
+function cerrarSeccion(seccion) {
+  seccion.classList.remove('activa');
+  seccion.setAttribute('aria-hidden', 'true');
+  gridSecciones.classList.remove('oculta');
+  document.body.classList.remove('seccion-abierta');
+}
+
+tarjetasSeccion.forEach((tarjeta) => {
+  tarjeta.addEventListener('click', () => abrirSeccion(tarjeta.dataset.seccion));
+});
+
+seccionesCompletas.forEach((seccion) => {
+  seccion.setAttribute('aria-hidden', 'true');
+  const botonCerrar = seccion.querySelector('[data-cerrar]');
+  if (botonCerrar) {
+    botonCerrar.addEventListener('click', () => cerrarSeccion(seccion));
+  }
+});
+
+// Los enlaces del header abren la sección correspondiente con el mismo fundido
+navPrincipal.querySelectorAll('a[href^="#"]').forEach((enlace) => {
+  const idDestino = enlace.getAttribute('href').slice(1);
+  const destino = document.getElementById(idDestino);
+  if (destino && destino.classList.contains('seccion-completa')) {
+    enlace.addEventListener('click', (evento) => {
+      evento.preventDefault();
+      abrirSeccion(idDestino);
+    });
+  }
+});
+
 // Animación de aparición al hacer scroll (fade in + desplazamiento hacia arriba)
 const observador = new IntersectionObserver((entradas) => {
   entradas.forEach((entrada) => {
